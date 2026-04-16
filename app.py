@@ -913,13 +913,13 @@ def main():
     # ── SIDEBAR ──
     with st.sidebar:
         st.markdown("""
-        <div style='text-align:center; padding: 20px 0 10px;'>
+        <div style='text-align:center; padding: 0px 0 10px;'>
             <div style='font-family:"DM Serif Display",serif; font-size:18px; font-weight:400;
-                        color:#BDD8E9; margin-top:8px; line-height:1.3;'>
+                        color:#BDD8E9; margin-top:-0px; line-height:1.3;'>
                 Ketenagakerjaan DIY
             </div>
         </div>
-        <hr style='border-color:rgba(123, 189, 232, 0.25); margin: 10px 0 16px;'>
+        <hr style='border-color:rgba(123, 189, 232, 0.25); margin: 5px 0 10px;'>
         """, unsafe_allow_html=True)
 
         st.markdown("### Filter")
@@ -1814,7 +1814,7 @@ def main():
             with col_c2:
                 st.markdown("<div class='section-header'>Keanggotaan Cluster</div>", unsafe_allow_html=True)
                 rows = [df_cluster_result.iloc[0:3], df_cluster_result.iloc[3:5]]
-                
+                label_color = "#87CEEB"
                 for row_data in rows:
                     cols = st.columns(len(row_data))
                     for idx, (_, row) in enumerate(row_data.iterrows()):
@@ -1842,12 +1842,12 @@ def main():
                                 {row['Label_Cluster']}
                             </div>
                             <div style='font-size: 13px; color: #E3F2FD; line-height: 1.6;'>
-                                <span style='opacity: 0.8;'>TPT:</span> <b>{row['TPT']:.2f}%</b><br>
-                                <span style='opacity: 0.8;'>TPAK:</span> <b>{row['TPAK']:.2f}%</b><br>
+                                <span style='color: {label_color}; font-weight: 600;'>TPT:</span> <b>{row['TPT']:.2f}%</b><br>
+                                <span style='color: {label_color}; font-weight: 600;'>TPAK:</span> <b>{row['TPAK']:.2f}%</b><br>
                                 <div style='margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1);'>
-                                    <span style='opacity: 0.8;'>Pendapatan:</span><br>
+                                    <span style='color: {label_color}; font-weight: 600;'>Pendapatan:</span><br>
                                     <b style='font-size: 14px; color: #FFD54F;'>Rp {row['Pendapatan_Total']:,.0f}</b><br>
-                                    <span style='opacity: 0.8;'>Penempatan:</span> <b>{row['Rasio_Penempatan']:.1f}%</b>
+                                    <span style='color: {label_color}; font-weight: 600;'>Penempatan:</span> <b>{row['Rasio_Penempatan']:.1f}%</b>
                                 </div>
                             </div>
                         </div>
